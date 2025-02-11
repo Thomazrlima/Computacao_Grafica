@@ -14,7 +14,7 @@ class Example(Base):
         vs_code = """
             void main()
             {
-                gl_Position = vec4(0.2, 0.3, 0.0, 1.0);
+                gl_Position = vec4(0.0, 0.0, 0.0, 1.0);
             }
         """
         # fragment shader code
@@ -22,7 +22,7 @@ class Example(Base):
             out vec4 fragColor;
             void main()
             {
-                fragColor = vec4(1.0, 0.0, 0.0, 1.0);
+                fragColor = vec4(1.0, 1.0, 0.0, 1.0);
             }
         """
         # Send code to GPU and compile; store program reference
@@ -32,7 +32,7 @@ class Example(Base):
         GL.glBindVertexArray(vao_ref)
         # render settings (optional) #
         # Set point width and height
-        GL.glPointSize(100)
+        GL.glPointSize(10)
 
     def update(self):
         """Seleciona programa a executar na GPU e apresenta os resultado do GPU"""
