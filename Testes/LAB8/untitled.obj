@@ -1,6 +1,6 @@
-# Blender 4.4.2
+# Blender 4.4.3
 # www.blender.org
-mtllib Sanfona.mtl
+mtllib untitled.mtl
 o Cube.001
 v -0.362752 1.484034 0.729957
 v -0.362752 1.538362 0.786553
