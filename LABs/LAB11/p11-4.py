@@ -182,22 +182,44 @@ class Example(Base):
 
         self.move_camera = True
         self.input_key_states = {}
+        self.control_camera = True
+        self.control_object1 = False
+        self.control_object2 = False
         print("Box and camera movement: WASDRF(move), QE(turn), TG(look).\nK changes from moving the object to moving the camera or from moving the camera to moving the object")
 
     def update(self):
-        if self.input.is_key_pressed('k'):
-            if not self.input_key_states.get('k', False):
-                self.move_camera = not self.move_camera
-            self.input_key_states['k'] = True
+        if self.input.is_key_pressed('z'):
+            if not self.input_key_states.get('z', False):
+                self.control_camera = True
+                self.control_object1 = False
+                self.control_object2 = False
+            self.input_key_states['z'] = True
+        elif self.input.is_key_pressed('x'):
+            if not self.input_key_states.get('x', False):
+                self.control_camera = False
+                self.control_object1 = True
+                self.control_object2 = False
+            self.input_key_states['x'] = True
+        elif self.input.is_key_pressed('c'):
+            if not self.input_key_states.get('c', False):
+                self.control_camera = False
+                self.control_object1 = False
+                self.control_object2 = True
+            self.input_key_states['c'] = True
         else:
-            self.input_key_states['k'] = False
+            self.input_key_states['z'] = False
+            self.input_key_states['x'] = False
+            self.input_key_states['c'] = False
 
-        if self.move_camera:
+        # Atualizar a entidade controlada
+        if self.control_camera:
             self.camera_rig.update(self.input, self.delta_time)
-        else:
+        elif self.control_object1:
             self.object_rig.update(self.input, self.delta_time)
+        elif self.control_object2:
             self.object_rig2.update(self.input, self.delta_time)
 
+        # Renderizar cena
         self.renderer.render(self.scene, self.camera)
 
 Example(screen_size=[800, 600]).run()
