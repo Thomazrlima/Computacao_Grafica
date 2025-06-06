@@ -1,63 +1,100 @@
-# Exercícios de Computação Gráfica (CG)
+# 🎨 Computação Gráfica - Exercícios Práticos
 
-## Descrição
+Repositório contendo implementações de algoritmos fundamentais e técnicas avançadas de CG, desenvolvidos durante a disciplina.
 
-Este repositório contém os exercícios realizados durante a disciplina de **Computação Gráfica (CG)**. O curso aborda uma ampla gama de tópicos que envolvem a criação e visualização de gráficos digitais, com ênfase na **arte gráfica**, **visualização científica**, e técnicas avançadas de renderização e transformações geométricas.
+## 🌟 Destaques
+- Implementação de algoritmos clássicos (Bresenham, Ray Tracing)
+- Pipeline gráfico completo (2D → 3D → Renderização)
+- Modelos avançados de iluminação e sombreamento
+- Projetos interativos com OpenGL/WebGL
 
-Os conceitos explorados abrangem desde as primitivas gráficas básicas até a visualização de objetos 3D e o uso de modelos de iluminação e sombreamento para criar representações realistas de cenas. Além disso, o curso inclui a implementação de algoritmos fundamentais para a renderização e manipulação de gráficos.
+## 🎯 Habilidades Desenvolvidas
 
-## Objetivos de Aprendizagem
+```mermaid
+pie
+    title Competências Adquiridas
+    "Primitivas Gráficas" : 25
+    "Transformações 2D/3D" : 20
+    "Modelos de Iluminação" : 25
+    "Técnicas de Renderização" : 30
+```
 
-Ao concluir os exercícios, o aluno será capaz de:
-- Compreender e implementar **primitivas gráficas** e **atributos**.
-- Aplicar **transformações geométricas** em 2D e 3D.
-- Trabalhar com **modelos de iluminação**, **sombras** e **projeções**.
-- Utilizar **técnicas de renderização** para criar imagens realistas e interativas.
-- Desenvolver habilidades práticas em computação gráfica utilizando **algoritmos** como **Bresenham**, **Gouraud**, **Phong**, e **Ray Tracing**.
+### Domínios Técnicos
+✔️ Pipeline gráfico completo  
+✔️ Matemática para CG (álgebra linear, geometria)  
+✔️ Otimização de algoritmos gráficos  
+✔️ Desenvolvimento com bibliotecas modernas (OpenGL, Three.js)  
 
-## Conteúdos Programáticos
+## 🏗️ Estrutura do Projeto
 
-### 1. **Introdução Geral e Aplicações**
-- Arte gráfica e **visualização científica**.
-- Aplicações práticas da computação gráfica em diferentes áreas.
+### 1. Fundamentos
+- `/primitivas/` → Algoritmos de rasterização (Bresenham, Midpoint)
+- `/transformacoes/` → Matrizes de transformação 2D/3D
+- `/colorizacao/` → Modelos de cor RGB/HSV/CMYK
 
-### 2. **Primitivas Gráficas**
-- **Pixéis**, **sectores**, **Bresenham**, **polyline**, **midpoint**, e **curvas**.
-- Técnicas para **encher áreas** e atributos gráficos como **tipos de linhas**, **áreas**, **texto**, **cores** e **antialiasing**.
+### 2. Técnicas Avançadas
+```bash
+/projetos/
+   ├── iluminacao/       # Phong, Gouraud
+   ├── ray-tracing/      # Path tracing básico
+   └── shaders/          # GLSL/HLSL
+```
 
-### 3. **Transformações Geométricas em 2D**
-- **Janelas** e **coordenadas homogêneas**.
-- Transformações geométricas básicas em **duas dimensões**.
-- Implementação de **clipping** e manipulação de regiões visíveis.
+### 3. Ferramentas Utilizadas
+| Tecnologia | Aplicação |
+|------------|-----------|
+| OpenGL | Renderização 3D |
+| GLFW | Criação de janelas |
+| GLM | Matemática gráfica |
+| ImGui | Interfaces |
 
-### 4. **Representação de Objetos em 3D**
-- Representação e visualização de objetos **tridimensionais**.
-- **Transformações 3D** e ajustes na visualização de objetos.
+## ⚙️ Configuração
 
-### 5. **Projeções e Perspectiva**
-- Técnicas de projeção e **perspectiva** para exibir objetos 3D em um plano 2D.
-- Algoritmos para a **detecção de superfícies visíveis**.
+### Pré-requisitos
+- Compilador C++17 (g++/clang)
+- OpenGL 4.6+
+- CMake 3.20+
 
-### 6. **Modelos de Iluminação e Surface Rendering**
-- **Fontes de luz**, **reflexão**, **transparência**, e **sombreamento**.
-- Técnicas de renderização como **Gouraud**, **Phong** e **Ray Tracing** para simular efeitos de luz e materiais.
+```bash
+# Linux
+sudo apt install libglfw3-dev libglm-dev
 
-### 7. **Modelos de Cores**
-- Teorias e métodos para a representação e manipulação de cores em computação gráfica.
-  
-## Pré-requisitos
+# Windows (vcpkg)
+vcpkg install glfw3 glm
+```
 
-- **Conhecimentos básicos de geometria** e **matemática**.
-- Familiaridade com **algoritmos** e **estruturas de dados**.
-- Experiência com linguagens de programação como **C++** ou **Python** para implementação dos exercícios.
+### Compilação
+```bash
+mkdir build && cd build
+cmake ..
+make -j4
+```
 
-## Como rodar os exercícios
+## 🚀 Exemplos de Código
 
-1. Clone este repositório.
-2. Instale as bibliotecas gráficas necessárias para executar os scripts (por exemplo, OpenGL ou outra biblioteca gráfica de sua escolha).
-3. Compile e execute os scripts de acordo com as instruções de cada exercício.
+### Transformação 3D
+```cpp
+glm::mat4 model = glm::mat4(1.0f);
+model = glm::rotate(model, glm::radians(45.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+model = glm::scale(model, glm::vec3(2.0f));
+```
 
-## Licença
+### Shader Básico
+```glsl
+#version 460 core
+out vec4 FragColor;
 
-Este repositório contém exercícios educacionais sobre computação gráfica e está disponível para fins de estudo e aprendizado.
+void main() {
+    FragColor = vec4(1.0, 0.5, 0.2, 1.0); 
+}
+```
 
+## 📊 Resultados Esperados
+*(Inclua capturas de tela ou gifs dos projetos)*
+
+![Exemplo Renderização](https://via.placeholder.com/600x400?text=Exemplo+Saída)
+
+## 📚 Recursos Adicionais
+- [LearnOpenGL](https://learnopengl.com/) - Tutorial moderno de OpenGL
+- [Scratchapixel](https://www.scratchapixel.com/) - Fundamentos matemáticos
+- [GPU Gems](https://developer.nvidia.com/gpugems) - Técnicas avançadas
