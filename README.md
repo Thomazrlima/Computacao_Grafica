@@ -88,13 +88,3 @@ void main() {
     FragColor = vec4(1.0, 0.5, 0.2, 1.0); 
 }
 ```
-
-## 📊 Resultados Esperados
-*(Inclua capturas de tela ou gifs dos projetos)*
-
-![Exemplo Renderização](https://via.placeholder.com/600x400?text=Exemplo+Saída)
-
-## 📚 Recursos Adicionais
-- [LearnOpenGL](https://learnopengl.com/) - Tutorial moderno de OpenGL
-- [Scratchapixel](https://www.scratchapixel.com/) - Fundamentos matemáticos
-- [GPU Gems](https://developer.nvidia.com/gpugems) - Técnicas avançadas
